@@ -36,7 +36,7 @@
         android:layout_marginTop="150dp"
         android:layout_marginEnd="157dp"
         android:layout_marginBottom="92dp"
-        android:text="Test123"
+        android:text="Halo Andreas"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_scan"
         app:layout_constraintEnd_toEndOf="parent"
