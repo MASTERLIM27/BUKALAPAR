@@ -6,14 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginRegisterActivity extends AppCompatActivity {
     Database db;
-    private TextInputLayout login_textInputLayout_email, login_textInputLayout_password ;
+    private TextInputLayout login_textInputLayout_username, login_textInputLayout_password ;
     private Button button, button2;
 
 
@@ -26,7 +25,7 @@ public class LoginRegisterActivity extends AppCompatActivity {
 
         db = new Database(this);
 
-        login_textInputLayout_email = (TextInputLayout)findViewById(R.id.login_textInputLayout_email);
+        login_textInputLayout_username = (TextInputLayout)findViewById(R.id.login_textInputLayout_username);
         login_textInputLayout_password = (TextInputLayout)findViewById(R.id.login_textInputLayout_password);
         button = (Button)findViewById(R.id.button);
         button2 = (Button)findViewById(R.id.button2);
@@ -49,7 +48,7 @@ public class LoginRegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String strUsername = login_textInputLayout_email.getEditText().toString();
+                String strUsername = login_textInputLayout_username.getEditText().toString();
                 String strPassword = login_textInputLayout_password.getEditText().toString();
                 Boolean masuk = db.checkLogin(strUsername, strPassword);
                 if (masuk == true){

@@ -23,6 +23,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         db = new Database(this);
         button = (Button)findViewById(R.id.button);
+        //Database
+        Boolean checkSession = db.checkSession("ada");
+        if(checkSession == false){
+            Intent loginIntent = new Intent(MainActivity.this,LoginRegisterActivity.class);
+            startActivity(loginIntent);
+            finish();
+        }
 
         //Splash Screen
         new Handler().postDelayed(new Runnable() {
@@ -36,13 +43,7 @@ public class MainActivity extends AppCompatActivity {
             }
         },waktu_loading);
 
-        //Database
-        Boolean checkSession = db.checkSession("ada");
-        if(checkSession == false){
-            Intent loginIntent = new Intent(MainActivity.this,LoginRegisterActivity.class);
-            startActivity(loginIntent);
-            finish();
-        }
+
 
 
 

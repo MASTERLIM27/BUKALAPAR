@@ -18,7 +18,7 @@ public class Database extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
       db.execSQL("CREATE TABLE session(id integer PRIMARY KEY, login text)");
-      db.execSQL("CREATE TABLE use(id integer PRIMARY KEY AUTOINCREMENT, username text, password text)");
+      db.execSQL("CREATE TABLE user(id integer PRIMARY KEY AUTOINCREMENT, username, password)");
       db.execSQL("INSERT INTO session(id, login) VALUES(1,'kosong')");
     }
 
@@ -53,24 +53,25 @@ public class Database extends SQLiteOpenHelper {
             }
         }
         //insert user
-        public Boolean insertUser(String username, String password){
+        public Boolean insertUser(String username, String password, String email){
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues contentValues = new ContentValues();
             contentValues.put("username", username);
             contentValues.put("password", password);
+            contentValues.put("email", email);
             long insert = db.insert("user", null, contentValues);
             if(insert == -1 ){
-                return false;
+                return true;
             }
             else{
-                return true;
+                return false;
             }
         }
 
     //check login
     public Boolean checkLogin(String username, String password){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM user WHERE username = ? AND password = ?", new String[]{username,password});
+        Cursor cursor = db.rawQuery("SELECT * FROM user WHERE username= ? AND password= ?", new String[]{username,password});
         if (cursor.getCount() > 0){
             return true;
         }
