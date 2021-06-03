@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import modal.User;
+
 public class SignUpActivity extends AppCompatActivity {
     Database db;
     private TextInputLayout login_textInputLayout_email, login_textInputLayout_password, passwordConf ;
@@ -50,9 +52,11 @@ public class SignUpActivity extends AppCompatActivity {
                     Boolean daftar = db.insertUser(strUsername,strPassword,strEmail);
                     if(daftar == true){
                         Toast.makeText(getApplicationContext(),"Daftar Berhasil",Toast.LENGTH_SHORT).show();
-                        Intent loginIntent = new Intent(SignUpActivity.this, LoginRegisterActivity.class);
-                        startActivity(loginIntent);
-                        finish();
+                        Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                        User user = new User(username, email, password);
+                        intent.putExtra("IDuser", user);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
                     }
                     else{
                         Toast.makeText(getApplicationContext(),"Daftar Gagal", Toast.LENGTH_SHORT).show();

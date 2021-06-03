@@ -55,9 +55,11 @@ public class LoginRegisterActivity extends AppCompatActivity {
                     Boolean updateSession = db.upgradeSession("ada",1);
                     if(updateSession == true){
                         Toast.makeText(getApplicationContext(),"Berhasil masuk", Toast.LENGTH_SHORT).show();
-                        Intent mainIntent = new Intent(LoginRegisterActivity.this,Home.class);
-                        startActivity(mainIntent);
-                        finish();
+                        Intent intent = new Intent(getBaseContext(), HomeActivity.class);
+                        User user = new User(nama, alamat, jenisKelamin, email, password);
+                        intent.putExtra("IDuser", user);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
                     }
                 }
                 else{
