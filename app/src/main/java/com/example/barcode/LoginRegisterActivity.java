@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import modal.User;
+
 public class LoginRegisterActivity extends AppCompatActivity {
     Database db;
     private TextInputLayout login_textInputLayout_username, login_textInputLayout_password ;
@@ -55,8 +57,8 @@ public class LoginRegisterActivity extends AppCompatActivity {
                     Boolean updateSession = db.upgradeSession("ada",1);
                     if(updateSession == true){
                         Toast.makeText(getApplicationContext(),"Berhasil masuk", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getBaseContext(), HomeActivity.class);
-                        User user = new User(nama, alamat, jenisKelamin, email, password);
+                        Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                        User user = new User(login_textInputLayout_username, login_textInputLayout_password);
                         intent.putExtra("IDuser", user);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
