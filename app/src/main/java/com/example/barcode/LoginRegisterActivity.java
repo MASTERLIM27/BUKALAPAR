@@ -48,15 +48,11 @@ public class LoginRegisterActivity extends AppCompatActivity {
 
                 for (int i = 0; i < users.size(); i++){
                     User tempUser = users.get(i);
-//                    String test1 = tempUser.getUsername();
-//                    String test2 = tempUser.getPassword();
-//                    Toast.makeText(getApplicationContext(), test1, Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(getApplicationContext(), test2, Toast.LENGTH_SHORT).show();
                     if ((tempUser.getUsername().equalsIgnoreCase(username))){
                         if(tempUser.getPassword().equalsIgnoreCase(password)){
                             String pUsername = tempUser.getUsername();
                             String pEmail = tempUser.getEmail();
-                            Intent intent = new Intent(getBaseContext(), BahanActivity.class);
+                            Intent intent = new Intent(getBaseContext(), MainActivity.class);
                             intent.putExtra("IDuser", i);
                             intent.putExtra("IDusername",pUsername);
                             intent.putExtra("IDemail", pEmail);
@@ -77,9 +73,9 @@ public class LoginRegisterActivity extends AppCompatActivity {
     }
 
     private void initView(){
-        login_textInputLayout_username = (TextInputLayout)findViewById(R.id.login_textInputLayout_username);
-        login_textInputLayout_password = (TextInputLayout)findViewById(R.id.login_textInputLayout_password);
-        login_buttonLogin = (Button)findViewById(R.id.login_buttonLogin);
-        login_buttonSignUp = (Button)findViewById(R.id.login_buttonSignUp);
+        login_textInputLayout_username = findViewById(R.id.login_textInputLayout_username);
+        login_textInputLayout_password = findViewById(R.id.login_textInputLayout_password);
+        login_buttonLogin = findViewById(R.id.login_buttonLogin);
+        login_buttonSignUp = findViewById(R.id.login_buttonSignUp);
     }
 }

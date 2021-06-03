@@ -37,7 +37,6 @@
         android:id="@+id/login_textInputLayout_username"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:hint="Username"
         app:errorEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/login_textInputLayout_password"
         app:layout_constraintEnd_toEndOf="@+id/textView3"
@@ -46,7 +45,8 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="Username" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/frag_page1_label"
+            android:id="@+id/frag_page3_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -47,9 +47,9 @@
             android:textColor="#FFFFFF"
             android:textSize="34sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/frag_page1_label"
-            app:layout_constraintStart_toStartOf="@+id/frag_page1_label"
-            app:layout_constraintTop_toBottomOf="@+id/frag_page1_label" />
+            app:layout_constraintEnd_toEndOf="@+id/frag_page3_label"
+            app:layout_constraintStart_toStartOf="@+id/frag_page3_label"
+            app:layout_constraintTop_toBottomOf="@+id/frag_page3_label" />
 
         <TextView
             android:id="@+id/textView4"
@@ -75,7 +75,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/home_recylerView"
+            android:id="@+id/bahan_recylerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#FFFFFF"
