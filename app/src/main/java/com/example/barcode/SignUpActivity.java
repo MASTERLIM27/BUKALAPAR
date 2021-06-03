@@ -6,68 +6,71 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.ArrayList;
+
+import modal.ListUser;
 import modal.User;
 
 public class SignUpActivity extends AppCompatActivity {
-    Database db;
-    private TextInputLayout login_textInputLayout_email, login_textInputLayout_password, passwordConf ;
-    private Button register;
-    private TextInputLayout username,email,password;
+
+    private TextInputLayout SignUp_textInputLayout_username, SignUp_textInputLayout_email, SignUp_textInputLayout_password;
+    private Button SignUp_buttonSignUp;
+    private ArrayList<User> users = ListUser.arrayUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-
-        db = new Database(this);
-        username = (TextInputLayout) findViewById(R.id.regist_textInputLayout_nama);
-        email = (TextInputLayout) findViewById(R.id.regist_textInputLayout_email);
-        password = (TextInputLayout) findViewById(R.id.regist_textInputLayout_password);
-        register = (Button) findViewById(R.id.register);
-
-
-        //login
-        //button.setOnClickListener(new View.OnClickListener() {
-            //@Override
-            //public void onClick(View v) {
-            //    Intent loginIntent = new Intent(SignUpActivity.this, LoginRegisterActivity.class);
-             //   startActivity(loginIntent);
-            //    finish();
-          //  }
-      //  });
+        initView();
 
         //register
-        register.setOnClickListener(new View.OnClickListener() {
+        SignUp_buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String strUsername = username.getEditText().toString();
-                String strEmail = email.getEditText().toString();
-                String strPassword = password.getEditText().toString();
+                String username = SignUp_textInputLayout_username.getEditText().toString();
+                String email = SignUp_textInputLayout_email.getEditText().toString();
+                String password = SignUp_textInputLayout_password.getEditText().toString();
 
-                if (strPassword.equals(strPassword)){
-                    Boolean daftar = db.insertUser(strUsername,strPassword,strEmail);
-                    if(daftar == true){
-                        Toast.makeText(getApplicationContext(),"Daftar Berhasil",Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getBaseContext(), MainActivity.class);
-                        User user = new User(username, email, password);
-                        intent.putExtra("IDuser", user);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intent);
-                    }
-                    else{
-                        Toast.makeText(getApplicationContext(),"Daftar Gagal", Toast.LENGTH_SHORT).show();
-                    }
+                if(email.isEmpty()){
+                    SignUp_textInputLayout_email.setError("Please fill the Email column");
+                }else{
+                    SignUp_textInputLayout_email.setError("");
                 }
-                else{
-                    Toast.makeText(getApplicationContext(),"Password tidak cocok",Toast.LENGTH_SHORT).show();
-               }
+
+                if(username.isEmpty()){
+                    SignUp_textInputLayout_username.setError("Please fill the name column");
+                }else{
+                    SignUp_textInputLayout_username.setError("");
+                }
+
+                if(password.isEmpty()){
+                    SignUp_textInputLayout_password.setError("Please fill the Password column");
+                }else{
+                    SignUp_textInputLayout_password.setError("");
+                }
+
+                if(!username.isEmpty()&& !password.isEmpty()&& !email.isEmpty()){
+                    Intent intent = new Intent(getBaseContext(),LoginRegisterActivity.class);
+                    User userbaru = new User(username, email, password);
+                    users.add(userbaru);
+//                    String test1 = userbaru.getUsername();
+//                    String test2 = userbaru.getPassword();
+//                    Toast.makeText(getApplicationContext(), test1, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(), test2, Toast.LENGTH_SHORT).show();
+                    startActivity(intent);
+                    finish();
+                }
             }
        });
-
-
+    }
+    private void initView(){
+        SignUp_textInputLayout_username = (TextInputLayout) findViewById(R.id.SignUp_textInputLayout_username);
+        SignUp_textInputLayout_email = (TextInputLayout) findViewById(R.id.SignUp_textInputLayout_email);
+        SignUp_textInputLayout_password = (TextInputLayout) findViewById(R.id.SignUp_textInputLayout_password);
+        SignUp_buttonSignUp = (Button) findViewById(R.id.SignUp_buttonSignUp);
     }
 }

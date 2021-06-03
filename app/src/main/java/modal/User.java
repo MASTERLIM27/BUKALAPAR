@@ -7,20 +7,21 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class User implements Parcelable{
 
-    public User(TextInputLayout username, TextInputLayout email) {
-        this.name = "";
+    private String username, email, password;
+    public User() {
+        this.username = "";
         this.email = "";
         this.password = "";
     }
 
-    public User(String name, String email, String password) {
-        this.name = name;
+    public User(String username, String email, String password) {
+        this.username = username;
         this.email = email;
         this.password = password;
     }
 
     protected User(Parcel in) {
-        name = in.readString();
+        username = in.readString();
         email = in.readString();
         password = in.readString();
     }
@@ -38,12 +39,12 @@ public class User implements Parcelable{
     };
 
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -70,12 +71,8 @@ public class User implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(name);
+        dest.writeString(username);
         dest.writeString(email);
         dest.writeString(password);
     }
-
-    private String name;
-    private String email;
-    private String password;
 }
