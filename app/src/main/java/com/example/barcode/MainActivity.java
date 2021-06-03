@@ -1,37 +1,51 @@
 package com.example.barcode;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.view.MenuItem;
+import android.widget.FrameLayout;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static TextView result_text;
-    private Button btn_scan;
+    private FrameLayout main_framelayout;
+    private BottomNavigationView botnav_botnavbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        init();
-        setListener();
+        initView();
+        setBotttomNavBar();
     }
-
-    public void init (){
-        result_text = findViewById(R.id.result_text);
-        btn_scan = findViewById(R.id.btn_scan);
-    }
-
-    public void setListener(){
-        btn_scan.setOnClickListener(new View.OnClickListener() {
+    private void setBotttomNavBar(){
+        botnav_botnavbar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),ScanCodeActivity.class));
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment selectedFragment = null;
+
+                if(item.getItemId() == R.id.menu_page1){
+                    selectedFragment = new Page1Fragment();
+                }else if(item.getItemId() == R.id.menu_page2){
+                    selectedFragment = new Page2Fragment();
+                }else if(item.getItemId() == R.id.menu_page3){
+                    selectedFragment = new Page3Fragment();
+                }
+
+                getSupportFragmentManager().beginTransaction().
+                        replace(R.id.main_framelayout, selectedFragment).commit();
+                return true;
             }
         });
+    }
+
+    private void initView(){
+        botnav_botnavbar = findViewById(R.id.main_botnavbar);
+        getSupportFragmentManager().beginTransaction().
+                replace(R.id.main_framelayout,new Page1Fragment()).commit();
     }
 }

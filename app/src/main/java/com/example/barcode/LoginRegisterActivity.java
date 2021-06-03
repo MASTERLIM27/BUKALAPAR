@@ -56,7 +56,7 @@ public class LoginRegisterActivity extends AppCompatActivity {
                         if(tempUser.getPassword().equalsIgnoreCase(password)){
                             String pUsername = tempUser.getUsername();
                             String pEmail = tempUser.getEmail();
-                            Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                            Intent intent = new Intent(getBaseContext(), BahanActivity.class);
                             intent.putExtra("IDuser", i);
                             intent.putExtra("IDusername",pUsername);
                             intent.putExtra("IDemail", pEmail);
