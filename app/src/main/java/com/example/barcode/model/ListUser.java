@@ -1,4 +1,4 @@
-package modal;
+package com.example.barcode.model;
 
 import java.util.ArrayList;
 

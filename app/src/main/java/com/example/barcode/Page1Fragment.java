@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,7 +18,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,16 +25,14 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import modal.Resep;
+import com.example.barcode.model.Resep;
 
 public class Page1Fragment extends Fragment implements OnCardListener{
 
     private View view;
-    private TextView frag_page1_label;
-    private RecyclerView home_recylerView;
+    private RecyclerView recommend_recyclerView;
     private ArrayList<Resep> dataResep;
     private ResepRVAdapter adapter;
-    private FloatingActionButton recyclerView_FAB_add;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,9 +61,7 @@ public class Page1Fragment extends Fragment implements OnCardListener{
     }
 
     private void initView(){
-        frag_page1_label = view.findViewById(R.id.frag_page3_label);
-        home_recylerView = view.findViewById(R.id.bahan_recylerView);
-//        recyclerView_FAB_add = findViewById(R.id.recyclerView_FAB_add);
+        recommend_recyclerView = view.findViewById(R.id.recommend_recyclerView);
         dataResep = new ArrayList<Resep>();
         adapter = new ResepRVAdapter(dataResep, this);
     }
@@ -80,25 +74,26 @@ public class Page1Fragment extends Fragment implements OnCardListener{
 //            }
 //        });
     }
-//    private void addDummyData(){
-//        dataBarang.add(new Barang("Meja belajar",100));
-//        dataBarang.add(new Barang("Kursi belajar",50));
-//        dataBarang.add(new Barang("TV",300));
-//        dataBarang.add(new Barang("Laptop",100));
-//        dataBarang.add(new Barang("Botol",5000));
-//        dataBarang.add(new Barang("Charger",500));
-//        adapter.notifyDataSetChanged();
-//    }
+
+    private void addDummyData(){
+        dataResep.add(new Resep("Meja belajar",100));
+        dataResep.add(new Resep("Kursi belajar",50));
+        dataResep.add(new Resep("TV",300));
+        dataResep.add(new Resep("Laptop",100));
+        dataResep.add(new Resep("Botol",5000));
+        dataResep.add(new Resep("Charger",500));
+        adapter.notifyDataSetChanged();
+    }
 
     private void setupRecyclerView(){
         RecyclerView.LayoutManager manager = new LinearLayoutManager(getContext());
-        home_recylerView.setLayoutManager(manager);
-        home_recylerView.setAdapter(adapter);
+        recommend_recyclerView.setLayoutManager(manager);
+        recommend_recyclerView.setAdapter(adapter);
     }
 
     private void loadDataDB(){
-        String url = "https://192.168.0.5/Bukalapar/resep/ReadAllResep.php";
-        RequestQueue myQueue = Volley.newRequestQueue(this.getContext());
+        String url = "http://192.168.0.5/Bukalapar/resep/ReadAllResep.php";
+        RequestQueue myQueue = Volley.newRequestQueue(getContext());
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {

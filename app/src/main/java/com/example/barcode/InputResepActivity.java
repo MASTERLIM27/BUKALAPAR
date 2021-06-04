@@ -19,7 +19,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.util.HashMap;
 import java.util.Map;
 
-import modal.Resep;
+import com.example.barcode.model.Resep;
 
 public class InputResepActivity extends AppCompatActivity {
 
@@ -29,11 +29,11 @@ public class InputResepActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_input_bahan);
+        setContentView(R.layout.activity_input_resep);
 
-        inputbarang_textInputLayout_nama = findViewById(R.id.inputbarang_textInputLayout_nama);
-        inputBarang_textInputLayout_jumlah = findViewById(R.id.inputBarang_textInputLayout_jumlah);
-        inputBarang_button_tambah = findViewById(R.id.inputBarang_button_tambah);
+        inputbarang_textInputLayout_nama = findViewById(R.id.inputResep_textInputLayout_nama);
+        inputBarang_textInputLayout_jumlah = findViewById(R.id.inputResep_textInputLayout_jumlah);
+        inputBarang_button_tambah = findViewById(R.id.inputResep_button_tambah);
 
         setListener();
     }

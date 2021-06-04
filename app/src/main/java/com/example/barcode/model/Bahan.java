@@ -1,15 +1,15 @@
-package modal;
+package com.example.barcode.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Resep implements Parcelable {
+public class Bahan implements Parcelable {
 
     private int id;
     private String nama, image_path, created;
     private int jumlah;
 
-    public Resep() {
+    public Bahan() {
         this.id = 0;
         this.nama = "";
         this.image_path = "";
@@ -17,7 +17,7 @@ public class Resep implements Parcelable {
         this.jumlah = 0;
     }
 
-    public Resep(String nama, int jumlah) {
+    public Bahan(String nama, int jumlah) {
         this.id = 0;
         this.nama = nama;
         this.image_path = "";
@@ -25,7 +25,7 @@ public class Resep implements Parcelable {
         this.jumlah = jumlah;
     }
 
-    public Resep(int id, String nama, String image_path, String created, int jumlah) {
+    public Bahan(int id, String nama, String image_path, String created, int jumlah) {
         this.id = id;
         this.nama = nama;
         this.image_path = image_path;
@@ -33,7 +33,7 @@ public class Resep implements Parcelable {
         this.jumlah = jumlah;
     }
 
-    protected Resep(Parcel in) {
+    protected Bahan(Parcel in) {
         id = in.readInt();
         nama = in.readString();
         image_path = in.readString();
@@ -41,15 +41,15 @@ public class Resep implements Parcelable {
         jumlah = in.readInt();
     }
 
-    public static final Creator<Resep> CREATOR = new Creator<Resep>() {
+    public static final Creator<Bahan> CREATOR = new Creator<Bahan>() {
         @Override
-        public Resep createFromParcel(Parcel in) {
-            return new Resep(in);
+        public Bahan createFromParcel(Parcel in) {
+            return new Bahan(in);
         }
 
         @Override
-        public Resep[] newArray(int size) {
-            return new Resep[size];
+        public Bahan[] newArray(int size) {
+            return new Bahan[size];
         }
     };
 

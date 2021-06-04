@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import modal.Resep;
+import com.example.barcode.model.Resep;
 
 public class ResepRVAdapter extends RecyclerView.Adapter<ResepRVAdapter.ResepViewHolder>{
 

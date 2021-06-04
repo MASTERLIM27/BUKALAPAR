@@ -12,8 +12,8 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 
-import modal.ListUser;
-import modal.User;
+import com.example.barcode.model.ListUser;
+import com.example.barcode.model.User;
 
 public class LoginRegisterActivity extends AppCompatActivity {
 

@@ -1,9 +1,7 @@
-package modal;
+package com.example.barcode.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import com.google.android.material.textfield.TextInputLayout;
 
 public class User implements Parcelable{
 

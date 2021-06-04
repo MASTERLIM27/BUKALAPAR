@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InputBarangActivity">
+    tools:context=".InputBahanActivity">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputbarang_textInputLayout_nama"
+        android:id="@+id/inputBahan_textInputLayout_nama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -21,31 +21,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="hint" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputBarang_textInputLayout_jumlah"
+        android:id="@+id/inputBahan_textInputLayout_jumlah"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/inputbarang_textInputLayout_nama"
-        app:layout_constraintStart_toStartOf="@+id/inputbarang_textInputLayout_nama"
-        app:layout_constraintTop_toBottomOf="@+id/inputbarang_textInputLayout_nama">
+        app:layout_constraintEnd_toEndOf="@+id/inputBahan_textInputLayout_nama"
+        app:layout_constraintStart_toStartOf="@+id/inputBahan_textInputLayout_nama"
+        app:layout_constraintTop_toBottomOf="@+id/inputBahan_textInputLayout_nama">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint"
-            android:inputType="number" />
+            android:hint="hint" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/inputBarang_button_tambah"
+        android:id="@+id/inputBahan_button_tambah"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Tambah Bahan"
-        app:layout_constraintEnd_toEndOf="@+id/inputBarang_textInputLayout_jumlah"
-        app:layout_constraintStart_toStartOf="@+id/inputBarang_textInputLayout_jumlah"
-        app:layout_constraintTop_toBottomOf="@+id/inputBarang_textInputLayout_jumlah" />
+        app:layout_constraintEnd_toEndOf="@+id/inputBahan_textInputLayout_jumlah"
+        app:layout_constraintStart_toStartOf="@+id/inputBahan_textInputLayout_jumlah"
+        app:layout_constraintTop_toBottomOf="@+id/inputBahan_textInputLayout_jumlah" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,16 +27,16 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import modal.Resep;
+import com.example.barcode.model.Bahan;
 
-public class Page3Fragment extends Fragment {
+public class Page3Fragment extends Fragment implements OnCardListener {
 
     private View view;
     private TextView frag_page3_label;
-    private RecyclerView bahan_recylerView;
-    private ArrayList<Resep> dataResep;
-    private ResepRVAdapter adapter;
-    private FloatingActionButton recyclerView_FAB_add;
+    private RecyclerView bahan_recyclerView;
+    private ArrayList<Bahan> dataBahan;
+    private BahanRVAdapter adapter;
+    private FloatingActionButton bahan_FAB_add;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,58 +45,73 @@ public class Page3Fragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_page3, container, false);
         initView();
         setupRecyclerView();
-//        addDummyData();
+        addDummyData();
         loadDataDB();
-//        setListener();
+        setListener();
         return view;
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if(requestCode == 1){
-            if (resultCode == 200){
-                Resep resepBaru = data.getParcelableExtra("resepBaru");
-                dataResep.add(resepBaru);
-                adapter.notifyDataSetChanged();
-            }
-        }
+        dataBahan.clear();
+        loadDataDB();
     }
 
     private void initView(){
         frag_page3_label = view.findViewById(R.id.frag_page3_label);
-        bahan_recylerView = view.findViewById(R.id.bahan_recylerView);
-//        recyclerView_FAB_add = findViewById(R.id.recyclerView_FAB_add);
-        dataResep = new ArrayList<Resep>();
-//        adapter = new BahanRVAdapter(dataResep, this);
+        bahan_recyclerView = view.findViewById(R.id.bahan_recyclerView);
+        bahan_FAB_add = view.findViewById(R.id.bahan_FAB_add);
+        dataBahan = new ArrayList<Bahan>();
+        adapter = new BahanRVAdapter(dataBahan, this);
+        adapter.notifyDataSetChanged();
+    }
+
+    private void setListener(){
+        bahan_FAB_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), InputBahanActivity.class);
+                startActivityForResult(intent,1);
+            }
+        });
+    }
+
+    private void addDummyData(){
+        dataBahan.add(new Bahan("Ayam",100));
+        dataBahan.add(new Bahan("Telur",50));
+        dataBahan.add(new Bahan("Udang",300));
+        dataBahan.add(new Bahan("Laptop",100));
+        dataBahan.add(new Bahan("Botol",5000));
+        dataBahan.add(new Bahan("Charger",500));
+        adapter.notifyDataSetChanged();
     }
 
     private void setupRecyclerView(){
-        RecyclerView.LayoutManager manager = new LinearLayoutManager(getContext());
-        bahan_recylerView.setLayoutManager(manager);
-        bahan_recylerView.setAdapter(adapter);
+        RecyclerView.LayoutManager manager = new LinearLayoutManager(view.getContext());
+        bahan_recyclerView.setLayoutManager(manager);
+        bahan_recyclerView.setAdapter(adapter);
     }
 
     private void loadDataDB(){
-        String url = "https://192.168.0.5/Bukalapar/resep/ReadAllResep.php";
-        RequestQueue myQueue = Volley.newRequestQueue(this.getContext());
+        String url = "http://192.168.0.5/Bukalapar/bahan/ReadAllBahan.php";
+        RequestQueue myQueue = Volley.newRequestQueue(getContext());
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            JSONArray jsonResep = response.getJSONArray("resep");
-                            for (int i = 0; i < jsonResep.length(); i++){
-                                JSONObject objResep = jsonResep.getJSONObject(i);
-                                Resep resepBaru = new Resep();
-                                resepBaru.setId(objResep.getInt("id"));
-                                resepBaru.setNama(objResep.getString("nama"));
-                                resepBaru.setImage_path(objResep.getString("image_path"));
-                                resepBaru.setJumlah(objResep.getInt("jumlah"));
-                                resepBaru.setCreated(objResep.getString("created"));
-                                dataResep.add(resepBaru);
+                            JSONArray jsonBahan = response.getJSONArray("bahan");
+                            for (int i = 0; i < jsonBahan.length(); i++){
+                                JSONObject objBahan = jsonBahan.getJSONObject(i);
+                                Bahan bahanBaru = new Bahan();
+                                bahanBaru.setId(objBahan.getInt("id"));
+                                bahanBaru.setNama(objBahan.getString("nama"));
+                                bahanBaru.setImage_path(objBahan.getString("image_path"));
+                                bahanBaru.setJumlah(objBahan.getInt("jumlah"));
+                                bahanBaru.setCreated(objBahan.getString("created"));
+                                dataBahan.add(bahanBaru);
                             }
                             adapter.notifyDataSetChanged();
                         } catch (JSONException e) {
@@ -115,11 +130,11 @@ public class Page3Fragment extends Fragment {
         myQueue.add(request);
     }
 
-//    @Override
-//    public void onCardClick(int position) {
-//        int id = dataResep.get(position).getId();
-//        Intent intent = new Intent(getContext(), detailResepActivity.class);
-//        intent.putExtra("id", id);
-//        startActivity(intent);
-//    }
+    @Override
+    public void onCardClick(int position) {
+        int id = dataBahan.get(position).getId();
+        Intent intent = new Intent(getContext(), detailResepActivity.class);
+        intent.putExtra("id", id);
+        startActivity(intent);
+    }
 }

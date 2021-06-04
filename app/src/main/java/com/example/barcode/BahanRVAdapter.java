@@ -11,8 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import modal.Bahan;
-import modal.Resep;
+import com.example.barcode.model.Bahan;
 
 public class BahanRVAdapter extends RecyclerView.Adapter<BahanRVAdapter.BahanViewHolder>{
 
@@ -26,14 +25,14 @@ public class BahanRVAdapter extends RecyclerView.Adapter<BahanRVAdapter.BahanVie
 
     @NonNull
     @Override
-    public BahanViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public BahanRVAdapter.BahanViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.card_bahan, parent, false);
         return new BahanViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BahanViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull BahanRVAdapter.BahanViewHolder holder, int position) {
         holder.card_textView_nama.setText(listBahan.get(position).getNama());
         holder.card_TextView_deskripsi.setText(String.valueOf(listBahan.get(position).getJumlah()));
     }

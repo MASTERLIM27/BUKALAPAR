@@ -14,18 +14,21 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".detailResepActivity" />
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".LoginRegisterActivity" />
         <activity android:name=".Splash_Activity" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
         <activity android:name=".SignUpActivity" />
         <activity android:name=".BahanActivity" />
         <activity android:name=".ScanCodeActivity" />
+        <activity android:name=".InputBahanActivity"/>
     </application>
 
 </manifest>

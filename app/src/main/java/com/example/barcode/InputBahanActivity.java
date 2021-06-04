@@ -19,49 +19,51 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.util.HashMap;
 import java.util.Map;
 
-import modal.Bahan;
+import com.example.barcode.model.Bahan;
 
 public class InputBahanActivity extends AppCompatActivity {
 
-    private TextInputLayout inputbarang_textInputLayout_nama, inputBarang_textInputLayout_jumlah;
-    private Button inputBarang_button_tambah;
+    private TextInputLayout inputBahan_textInputLayout_nama, inputBahan_textInputLayout_jumlah;
+    private Button inputBahan_button_tambah;
+    private BahanRVAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_bahan);
 
-        inputbarang_textInputLayout_nama = findViewById(R.id.inputbarang_textInputLayout_nama);
-        inputBarang_textInputLayout_jumlah = findViewById(R.id.inputBarang_textInputLayout_jumlah);
-        inputBarang_button_tambah = findViewById(R.id.inputBarang_button_tambah);
+        inputBahan_textInputLayout_nama = findViewById(R.id.inputBahan_textInputLayout_nama);
+        inputBahan_textInputLayout_jumlah = findViewById(R.id.inputBahan_textInputLayout_jumlah);
+        inputBahan_button_tambah = findViewById(R.id.inputBahan_button_tambah);
 
         setListener();
     }
 
     private void setListener(){
-        inputBarang_button_tambah.setOnClickListener(new View.OnClickListener() {
+        inputBahan_button_tambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nama = inputbarang_textInputLayout_nama.getEditText().getText().toString().trim();
-                int jumlah = Integer.parseInt(inputBarang_textInputLayout_jumlah.getEditText().getText().toString().trim());
+                String nama = inputBahan_textInputLayout_nama.getEditText().getText().toString().trim();
+                int jumlah = Integer.parseInt(inputBahan_textInputLayout_jumlah.getEditText().getText().toString().trim());
                 Bahan temp = new Bahan(nama, jumlah);
-
                 postData(temp);
+//                adapter.notifyDataSetChanged();
             }
         });
     }
 
     private void postData(final Bahan temp){
-        String url = "http://192.168.0.5/PT/CreateBarang.php";
+        String url = "http://192.168.0.5/Bukalapar/bahan/CreateBahan.php";
         RequestQueue myRequest = Volley.newRequestQueue(this);
 
         StringRequest request = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Intent intent= new Intent(getBaseContext(), Page3Fragment.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intent);
+//                        Intent intent= new Intent(getBaseContext(), Page3Fragment.class);
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                        startActivity(intent);
+                        finish();
                     }
                 },
                 new Response.ErrorListener() {
