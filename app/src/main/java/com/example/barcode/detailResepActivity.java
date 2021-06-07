@@ -32,7 +32,7 @@ public class detailResepActivity extends AppCompatActivity {
     }
 
     private void getData(){
-        String url = "https://192.168.0.5/Bukalapar/resep/ReadResepByID.php";
+        String url = "http://192.168.0.5/Bukalapar/resep/ReadResepByID.php";
         RequestQueue myQueue = Volley.newRequestQueue(this);
 
         JSONObject parameter = new JSONObject();

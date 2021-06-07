@@ -6,38 +6,30 @@ import android.os.Parcelable;
 public class Bahan implements Parcelable {
 
     private int id;
-    private String nama, image_path, created;
+    private String nama;
     private int jumlah;
 
     public Bahan() {
         this.id = 0;
         this.nama = "";
-        this.image_path = "";
-        this.created = "";
         this.jumlah = 0;
     }
 
     public Bahan(String nama, int jumlah) {
         this.id = 0;
         this.nama = nama;
-        this.image_path = "";
-        this.created = "";
         this.jumlah = jumlah;
     }
 
-    public Bahan(int id, String nama, String image_path, String created, int jumlah) {
+    public Bahan(int id, String nama, int jumlah) {
         this.id = id;
         this.nama = nama;
-        this.image_path = image_path;
-        this.created = created;
         this.jumlah = jumlah;
     }
 
     protected Bahan(Parcel in) {
         id = in.readInt();
         nama = in.readString();
-        image_path = in.readString();
-        created = in.readString();
         jumlah = in.readInt();
     }
 
@@ -61,28 +53,12 @@ public class Bahan implements Parcelable {
         this.id = id;
     }
 
-    public String getCreated() {
-        return created;
-    }
-
-    public void setCreated(String created) {
-        this.created = created;
-    }
-
     public String getNama() {
         return nama;
     }
 
     public void setNama(String nama) {
         this.nama = nama;
-    }
-
-    public String getImage_path() {
-        return image_path;
-    }
-
-    public void setImage_path(String image_path) {
-        this.image_path = image_path;
     }
 
     public int getJumlah() {
@@ -102,8 +78,6 @@ public class Bahan implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
         dest.writeString(nama);
-        dest.writeString(image_path);
-        dest.writeString(created);
         dest.writeInt(jumlah);
     }
 }

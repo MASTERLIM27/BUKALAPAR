@@ -81,9 +81,9 @@ public class Page3Fragment extends Fragment implements OnCardListener {
         dataBahan.add(new Bahan("Ayam",100));
         dataBahan.add(new Bahan("Telur",50));
         dataBahan.add(new Bahan("Udang",300));
-        dataBahan.add(new Bahan("Laptop",100));
-        dataBahan.add(new Bahan("Botol",5000));
-        dataBahan.add(new Bahan("Charger",500));
+        dataBahan.add(new Bahan("Tepung",100));
+        dataBahan.add(new Bahan("Gula",5000));
+        dataBahan.add(new Bahan("Garam",500));
         adapter.notifyDataSetChanged();
     }
 
@@ -108,9 +108,7 @@ public class Page3Fragment extends Fragment implements OnCardListener {
                                 Bahan bahanBaru = new Bahan();
                                 bahanBaru.setId(objBahan.getInt("id"));
                                 bahanBaru.setNama(objBahan.getString("nama"));
-                                bahanBaru.setImage_path(objBahan.getString("image_path"));
                                 bahanBaru.setJumlah(objBahan.getInt("jumlah"));
-                                bahanBaru.setCreated(objBahan.getString("created"));
                                 dataBahan.add(bahanBaru);
                             }
                             adapter.notifyDataSetChanged();

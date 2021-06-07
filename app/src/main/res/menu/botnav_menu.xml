@@ -3,14 +3,14 @@
 
     <item
         android:id="@+id/menu_page1"
-        android:icon="@drawable/ic_action_page1"
+        android:icon="@drawable/chef"
         android:title="Home" />
     <item
         android:id="@+id/menu_page2"
-        android:icon="@drawable/ic_action_page1"
+        android:icon="@drawable/book"
         android:title="Recipe" />
     <item
         android:id="@+id/menu_page3"
-        android:icon="@drawable/ic_action_page1"
-        android:title="Bahan" />
+        android:icon="@drawable/bake"
+        android:title="Ingredients" />
 </menu>
