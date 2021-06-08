@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".detailBahanActivity"></activity>
         <activity android:name=".detailResepActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -22,13 +23,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginRegisterActivity" />
-        <activity android:name=".Splash_Activity" >
-
-        </activity>
+        <activity android:name=".Splash_Activity"></activity>
         <activity android:name=".SignUpActivity" />
         <activity android:name=".BahanActivity" />
         <activity android:name=".ScanCodeActivity" />
-        <activity android:name=".InputBahanActivity"/>
+        <activity android:name=".InputBahanActivity" />
     </application>
 
 </manifest>

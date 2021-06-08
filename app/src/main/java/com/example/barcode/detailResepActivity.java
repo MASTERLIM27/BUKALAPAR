@@ -19,8 +19,9 @@ import org.json.JSONObject;
 
 public class detailResepActivity extends AppCompatActivity {
 
-    private TextView detail_label_nama, detail_label_jumlah,detail_label_created;
-    private Button detail_button_edit, detail_button_delete;
+    private TextView detail_label_nama, detailResep_label_bahan1,detailResep_label_bahan2,detailResep_label_bahan3,detailResep_label_bahan4,detailResep_label_bahan5,
+            detailResep_label_instruksi, detailResep_label_jumlahbahan1, detailResep_label_jumlahbahan2, detailResep_label_jumlahbahan3, detailResep_label_jumlahbahan4, detailResep_label_jumlahbahan5;
+    private Button detailResep_button_edit, detailResep_button_delete;
     private int id;
 
     @Override
@@ -49,8 +50,19 @@ public class detailResepActivity extends AppCompatActivity {
                         try {
                             JSONObject dresep = response.getJSONObject("resep");
                             detail_label_nama.setText(dresep.getString("nama"));
-                            detail_label_jumlah.setText(String.valueOf(dresep.getInt("jumlah")));
-                            detail_label_created.setText(dresep.getString("created"));
+                            detailResep_label_bahan1.setText(dresep.getString("bahan_1"));
+                            detailResep_label_bahan2.setText(dresep.getString("bahan_2"));
+                            detailResep_label_bahan3.setText(dresep.getString("bahan_3"));
+                            detailResep_label_bahan4.setText(dresep.getString("bahan_4"));
+                            detailResep_label_bahan5.setText(dresep.getString("bahan_5"));
+                            detailResep_label_jumlahbahan1.setText(String.valueOf(dresep.getInt("jumlah_bahan_1")));
+                            detailResep_label_jumlahbahan2.setText(String.valueOf(dresep.getInt("jumlah_bahan_2")));
+                            detailResep_label_jumlahbahan3.setText(String.valueOf(dresep.getInt("jumlah_bahan_3")));
+                            detailResep_label_jumlahbahan4.setText(String.valueOf(dresep.getInt("jumlah_bahan_4")));
+                            detailResep_label_jumlahbahan5.setText(String.valueOf(dresep.getInt("jumlah_bahan_5")));
+                            detailResep_label_instruksi.setText(dresep.getString("detailResep_label_instruksi"));
+
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -69,11 +81,19 @@ public class detailResepActivity extends AppCompatActivity {
     }
 
     private void initView(){
-        detail_label_nama = findViewById(R.id.detail_label_nama);
-        detail_label_jumlah = findViewById(R.id.detail_label_jumlah);
-        detail_label_created = findViewById(R.id.detail_label_created);
-        detail_button_edit = findViewById(R.id.detail_button_edit);
-        detail_button_delete = findViewById(R.id.detail_button_delete);
+        detail_label_nama = findViewById(R.id.detailResep_label_nama);
+        detailResep_label_bahan1 = findViewById(R.id.detailResep_label_bahan1);
+        detailResep_label_bahan2 = findViewById(R.id.detailResep_label_bahan2);
+        detailResep_label_bahan3 = findViewById(R.id.detailResep_label_bahan3);
+        detailResep_label_bahan4 = findViewById(R.id.detailResep_label_bahan4);
+        detailResep_label_bahan5 = findViewById(R.id.detailResep_label_bahan5);
+        detailResep_label_jumlahbahan1 = findViewById(R.id.detailResep_label_jumlahbahan1);
+        detailResep_label_jumlahbahan2 = findViewById(R.id.detailResep_label_jumlahbahan2);
+        detailResep_label_jumlahbahan3 = findViewById(R.id.detailResep_label_jumlahbahan3);
+        detailResep_label_jumlahbahan4 = findViewById(R.id.detailResep_label_jumlahbahan4);
+        detailResep_label_jumlahbahan5 = findViewById(R.id.detailResep_label_jumlahbahan5);
+        detailResep_button_edit = findViewById(R.id.detailResep_button_edit);
+        detailResep_button_delete = findViewById(R.id.detailResep_button_delete);
         Intent intent = getIntent();
         id = intent.getIntExtra("id",0);
     }

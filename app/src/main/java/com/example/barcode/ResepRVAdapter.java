@@ -23,18 +23,17 @@ public class ResepRVAdapter extends RecyclerView.Adapter<ResepRVAdapter.ResepVie
         this.listResep = listResep;
     }
 
-    @NonNull
     @Override
-    public ResepViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ResepRVAdapter.ResepViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.card_resep, parent, false);
         return new ResepViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ResepViewHolder holder, int position) {
-        holder.card_textView_nama.setText(listResep.get(position).getNama());
-        holder.card_TextView_deskripsi.setText(String.valueOf(listResep.get(position).getJumlah()));
+    public void onBindViewHolder(@NonNull ResepRVAdapter.ResepViewHolder holder, int position) {
+        holder.cardResep_textView_nama.setText(listResep.get(position).getNama());
+        holder.cardResep_TextView_jumlah.setText(String.valueOf(listResep.get(position).getJumlah()));
     }
 
     @Override
@@ -44,15 +43,15 @@ public class ResepRVAdapter extends RecyclerView.Adapter<ResepRVAdapter.ResepVie
 
     public class ResepViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView card_textView_nama,card_TextView_deskripsi;
-        private ImageView card_image_item;
+        private TextView cardResep_textView_nama,cardResep_TextView_jumlah;
+        private ImageView cardResep_image_item;
 
         public ResepViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            card_textView_nama = itemView.findViewById(R.id.card_textView_nama);
-            card_TextView_deskripsi = itemView.findViewById(R.id.card_TextView_deskripsi);
-            card_image_item = itemView.findViewById(R.id.card_image_item);
+            cardResep_textView_nama = itemView.findViewById(R.id.cardResep_textView_nama);
+            cardResep_TextView_jumlah = itemView.findViewById(R.id.cardResep_TextView_jumlah);
+            cardResep_image_item = itemView.findViewById(R.id.cardResep_image_item);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

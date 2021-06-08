@@ -33,8 +33,8 @@ public class BahanRVAdapter extends RecyclerView.Adapter<BahanRVAdapter.BahanVie
 
     @Override
     public void onBindViewHolder(@NonNull BahanRVAdapter.BahanViewHolder holder, int position) {
-        holder.card_textView_nama.setText(listBahan.get(position).getNama());
-        holder.card_TextView_deskripsi.setText(String.valueOf(listBahan.get(position).getJumlah()));
+        holder.cardBahan_textView_nama.setText(listBahan.get(position).getNama());
+        holder.cardBahan_TextView_jumlah.setText(String.valueOf(listBahan.get(position).getJumlah()));
     }
 
     @Override
@@ -44,15 +44,15 @@ public class BahanRVAdapter extends RecyclerView.Adapter<BahanRVAdapter.BahanVie
 
     public class BahanViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView card_textView_nama,card_TextView_deskripsi;
-        private ImageView card_image_item;
+        private TextView cardBahan_textView_nama,cardBahan_TextView_jumlah;
+        private ImageView cardBahan_image_item;
 
         public BahanViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            card_textView_nama = itemView.findViewById(R.id.card_textView_nama);
-            card_TextView_deskripsi = itemView.findViewById(R.id.card_TextView_deskripsi);
-            card_image_item = itemView.findViewById(R.id.card_image_item);
+            cardBahan_textView_nama = itemView.findViewById(R.id.cardBahan_textView_nama);
+            cardBahan_TextView_jumlah = itemView.findViewById(R.id.cardBahan_textView_jumlah);
+            cardBahan_image_item = itemView.findViewById(R.id.cardBahan_image_item);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -41,7 +41,7 @@ public class Page2Fragment extends Fragment implements OnCardListener{
         view = inflater.inflate(R.layout.fragment_page2, container, false);
         initView();
         setupRecyclerView();
-        addDummyData();
+        //addDummyData();
         loadDataDB();
         setListener();
         return view;
@@ -107,8 +107,17 @@ public class Page2Fragment extends Fragment implements OnCardListener{
                                 resepBaru.setId(objResep.getInt("id"));
                                 resepBaru.setNama(objResep.getString("nama"));
                                 resepBaru.setImage_path(objResep.getString("image_path"));
-                                resepBaru.setJumlah(objResep.getInt("jumlah"));
-                                resepBaru.setCreated(objResep.getString("created"));
+                                resepBaru.setBahan_1(objResep.getString("bahan_1"));
+                                resepBaru.setBahan_2(objResep.getString("bahan_2"));
+                                resepBaru.setBahan_3(objResep.getString("bahan_3"));
+                                resepBaru.setBahan_4(objResep.getString("bahan_4"));
+                                resepBaru.setBahan_5(objResep.getString("bahan_5"));
+                                resepBaru.setJumlah_bahan_1(objResep.getInt("jumlah_bahan_1"));
+                                resepBaru.setJumlah_bahan_2(objResep.getInt("jumlah_bahan_2"));
+                                resepBaru.setJumlah_bahan_3(objResep.getInt("jumlah_bahan_3"));
+                                resepBaru.setJumlah_bahan_4(objResep.getInt("jumlah_bahan_4"));
+                                resepBaru.setJumlah_bahan_5(objResep.getInt("jumlah_bahan_5"));
+                                resepBaru.setInstruksi(objResep.getString("instruksi"));
                                 dataResep.add(resepBaru);
                             }
                             adapter.notifyDataSetChanged();

@@ -35,18 +35,18 @@ public class InputResepActivity extends AppCompatActivity {
         inputBarang_textInputLayout_jumlah = findViewById(R.id.inputResep_textInputLayout_jumlah);
         inputBarang_button_tambah = findViewById(R.id.inputResep_button_tambah);
 
-        setListener();
+//        setListener();
     }
 
     private void setListener(){
         inputBarang_button_tambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nama = inputbarang_textInputLayout_nama.getEditText().getText().toString().trim();
-                int jumlah = Integer.parseInt(inputBarang_textInputLayout_jumlah.getEditText().getText().toString().trim());
-                Resep temp = new Resep(nama, jumlah);
+//                String nama = inputbarang_textInputLayout_nama.getEditText().getText().toString().trim();
+//                int bahan_1 = Integer.parseInt(inputBarang_textInputLayout_jumlah.getEditText().getText().toString().trim());
+//                Resep temp = new Resep(nama, bahan_1);
 
-                postData(temp);
+//                postData(temp);
             }
         });
     }
