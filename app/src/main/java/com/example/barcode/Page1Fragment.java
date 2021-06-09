@@ -63,7 +63,7 @@ public class Page1Fragment extends Fragment implements OnCardListener{
     private void initView(){
         recommend_recyclerView = view.findViewById(R.id.recommend_recyclerView);
         dataResep = new ArrayList<Resep>();
-        adapter = new ResepRVAdapter(dataResep, this);
+        adapter = new ResepRVAdapter(dataResep, this,getContext());
     }
     private void setListener(){
 //        recyclerView_FAB_add.setOnClickListener(new View.OnClickListener() {

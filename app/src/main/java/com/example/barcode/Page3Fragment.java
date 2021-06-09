@@ -106,7 +106,7 @@ public class Page3Fragment extends Fragment implements OnCardListener {
                             for (int i = 0; i < jsonBahan.length(); i++){
                                 JSONObject objBahan = jsonBahan.getJSONObject(i);
                                 Bahan bahanBaru = new Bahan();
-                                bahanBaru.setId(objBahan.getInt("id"));
+                                bahanBaru.setId(objBahan.getString("id"));
                                 bahanBaru.setNama(objBahan.getString("nama"));
                                 bahanBaru.setJumlah(objBahan.getInt("jumlah"));
                                 dataBahan.add(bahanBaru);
@@ -130,7 +130,7 @@ public class Page3Fragment extends Fragment implements OnCardListener {
 
     @Override
     public void onCardClick(int position) {
-        int id = dataBahan.get(position).getId();
+        String id = dataBahan.get(position).getId();
         Intent intent = new Intent(getContext(), detailResepActivity.class);
         intent.putExtra("id", id);
         startActivity(intent);

@@ -63,7 +63,7 @@ public class Page2Fragment extends Fragment implements OnCardListener{
     private void initView(){
         resep_recylerView = view.findViewById(R.id.resep_recyclerView);
         dataResep = new ArrayList<Resep>();
-        adapter = new ResepRVAdapter(dataResep, this);
+        adapter = new ResepRVAdapter(dataResep, this,getContext());
     }
     private void setListener(){
 //        recyclerView_FAB_add.setOnClickListener(new View.OnClickListener() {

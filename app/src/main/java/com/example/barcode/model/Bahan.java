@@ -5,30 +5,30 @@ import android.os.Parcelable;
 
 public class Bahan implements Parcelable {
 
-    private int id;
+    private String id;
     private String nama;
     private int jumlah;
 
     public Bahan() {
-        this.id = 0;
+        this.id = "";
         this.nama = "";
         this.jumlah = 0;
     }
 
     public Bahan(String nama, int jumlah) {
-        this.id = 0;
+        this.id = "";
         this.nama = nama;
         this.jumlah = jumlah;
     }
 
-    public Bahan(int id, String nama, int jumlah) {
+    public Bahan(String id, String nama, int jumlah) {
         this.id = id;
         this.nama = nama;
         this.jumlah = jumlah;
     }
 
     protected Bahan(Parcel in) {
-        id = in.readInt();
+        id = in.readString();
         nama = in.readString();
         jumlah = in.readInt();
     }
@@ -45,11 +45,11 @@ public class Bahan implements Parcelable {
         }
     };
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -76,7 +76,7 @@ public class Bahan implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
+        dest.writeString(id);
         dest.writeString(nama);
         dest.writeInt(jumlah);
     }

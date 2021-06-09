@@ -51,7 +51,8 @@ public class InputBahanActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String nama = inputBahan_textInputLayout_nama.getEditText().getText().toString().trim();
                 String cekid = inputBahan_textInputLayout_code.getEditText().getText().toString().trim();
-                int id = Integer.parseInt(inputBahan_textInputLayout_code.getEditText().getText().toString().trim());
+                String id = inputBahan_textInputLayout_code.getEditText().getText().toString().trim();
+//                int id = Integer.parseInt(inputBahan_textInputLayout_code.getEditText().getText().toString().trim());
 //                int id = Integer.parseInt(inputBahan_EditText_code.getEditableText().toString().trim());
                 int jumlah = Integer.parseInt(inputBahan_textInputLayout_jumlah.getEditText().getText().toString().trim());
                 String cekJumlah =inputBahan_textInputLayout_jumlah.getEditText().getText().toString().trim();
