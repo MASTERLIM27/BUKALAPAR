@@ -21,6 +21,7 @@ public class ScanCodeActivity extends AppCompatActivity implements ZXingScannerV
     @Override
     public void handleResult(Result result) {
         InputBahanActivity.inputBahan_EditText_code.setText(result.getText());
+        detailBahanActivity.detailBahan_EditText_id.setText(result.getText());
 //        BahanActivity.result_text.setText(result.getText());
         onBackPressed();
     }

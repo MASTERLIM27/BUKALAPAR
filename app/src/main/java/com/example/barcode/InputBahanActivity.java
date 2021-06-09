@@ -2,7 +2,6 @@ package com.example.barcode;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 
@@ -38,7 +37,7 @@ public class InputBahanActivity extends AppCompatActivity {
         inputBahan_textInputLayout_nama = findViewById(R.id.inputBahan_textInputLayout_nama);
         inputBahan_textInputLayout_jumlah = findViewById(R.id.inputBahan_textInputLayout_jumlah);
         inputBahan_textInputLayout_code = findViewById(R.id.inputBahan_textInputLayout_code);
-        inputBahan_EditText_code = findViewById(R.id.inputBahan_EditText_code);
+        inputBahan_EditText_code = findViewById(R.id.detailBahan_EditText_code);
         inputBahan_button_tambah = findViewById(R.id.inputBahan_button_tambah);
         inputBahan_button_qr = findViewById(R.id.inputBahan_button_qr);
 

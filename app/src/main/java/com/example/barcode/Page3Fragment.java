@@ -45,7 +45,7 @@ public class Page3Fragment extends Fragment implements OnCardListener {
         view = inflater.inflate(R.layout.fragment_page3, container, false);
         initView();
         setupRecyclerView();
-        addDummyData();
+        //addDummyData();
         loadDataDB();
         setListener();
         return view;
@@ -131,7 +131,7 @@ public class Page3Fragment extends Fragment implements OnCardListener {
     @Override
     public void onCardClick(int position) {
         String id = dataBahan.get(position).getId();
-        Intent intent = new Intent(getContext(), detailResepActivity.class);
+        Intent intent = new Intent(getContext(), detailBahanActivity.class);
         intent.putExtra("id", id);
         startActivity(intent);
     }

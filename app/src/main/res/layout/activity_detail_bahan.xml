@@ -4,6 +4,141 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FDF1CB"
     tools:context=".detailBahanActivity">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bake" />
+
+    <TextView
+        android:id="@+id/datailBahan_textView_nama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Jumlah :"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/datailBahan_textView_jumlah"
+        app:layout_constraintStart_toStartOf="@+id/datailBahan_textView_nama"
+        app:layout_constraintTop_toBottomOf="@+id/datailBahan_textView_nama" />
+
+    <TextView
+        android:id="@+id/datailBahan_textView_jumlah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/datailBahan_textView_nama"
+        app:layout_constraintStart_toEndOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/datailBahan_textView_nama" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="Update :"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/detailBahan_textInputLayout_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/detailBahan_imageButton_code"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/detailBahan_EditText_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="id"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/detailBahan_textInputLayout_nama"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/detailBahan_imageButton_code"
+        app:layout_constraintStart_toStartOf="@+id/detailBahan_textInputLayout_id"
+        app:layout_constraintTop_toBottomOf="@+id/detailBahan_textInputLayout_id">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/detailBahan_EditText_nama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="nama" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/detailBahan_textInputLayout_jumlah"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/detailBahan_textInputLayout_nama"
+        app:layout_constraintStart_toStartOf="@+id/detailBahan_textInputLayout_nama"
+        app:layout_constraintTop_toBottomOf="@+id/detailBahan_textInputLayout_nama">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/detailBahan_EditText_jumlah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="jumlah"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/detailBahan_button_save"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_shape"
+        android:backgroundTint="#FF9800"
+        android:text="SAVE"
+        app:layout_constraintEnd_toEndOf="@+id/detailBahan_textInputLayout_jumlah"
+        app:layout_constraintStart_toStartOf="@+id/detailBahan_textInputLayout_jumlah"
+        app:layout_constraintTop_toBottomOf="@+id/detailBahan_textInputLayout_jumlah" />
+
+    <ImageButton
+        android:id="@+id/detailBahan_imageButton_code"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/logo_scanner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 </androidx.constraintlayout.widget.ConstraintLayout>

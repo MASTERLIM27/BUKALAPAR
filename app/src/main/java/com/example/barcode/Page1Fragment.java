@@ -93,6 +93,7 @@ public class Page1Fragment extends Fragment implements OnCardListener{
 
     private void loadDataDB(){
         String url = "http://192.168.0.5/Bukalapar/resep/ReadAllResep.php";
+//        String urlBahan = "http://192.168.0.5/Bukalapar/bahan/ReadAllBahan.php";
         RequestQueue myQueue = Volley.newRequestQueue(getContext());
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
@@ -101,6 +102,7 @@ public class Page1Fragment extends Fragment implements OnCardListener{
                     public void onResponse(JSONObject response) {
                         try {
                             JSONArray jsonResep = response.getJSONArray("resep");
+//                            JSONArray jsonBahan = response.getJSONArray("bahan");
                             for (int i = 0; i < jsonResep.length(); i++){
                                 JSONObject objResep = jsonResep.getJSONObject(i);
                                 Resep resepBaru = new Resep();
@@ -118,7 +120,26 @@ public class Page1Fragment extends Fragment implements OnCardListener{
                                 resepBaru.setJumlah_bahan_4(objResep.getInt("jumlah_bahan_4"));
                                 resepBaru.setJumlah_bahan_5(objResep.getInt("jumlah_bahan_5"));
                                 resepBaru.setInstruksi(objResep.getString("instruksi"));
-                                dataResep.add(resepBaru);
+//                                for (int j = 0; j < jsonResep.length(); j++){
+//                                    JSONObject objBahan = jsonResep.getJSONObject(j);
+//                                    if(objResep.getString("bahan_1").equalsIgnoreCase(objBahan.getString("nama"))
+//                                    && objBahan.getInt("jumlah") >= objResep.getInt("jumlah_bahan_1")){
+//                                        if(!dataResep.isEmpty()) {
+//                                            for( int k = 0;
+//                                            k<dataResep.size (); k++){
+//                                                Resep cekResep = new Resep();
+//                                                if (resepBaru != cekResep) {
+//                                                    dataResep.add(resepBaru);
+//                                                }
+//                                            }
+//                                        }
+//                                    }
+//                                }
+
+                                if(dataResep.size()<3){
+                                    dataResep.add(resepBaru);
+                                }
+
                             }
                             adapter.notifyDataSetChanged();
                         } catch (JSONException e) {
